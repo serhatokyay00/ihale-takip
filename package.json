@@ -1,0 +1,18 @@
+{
+  "name": "ihale-takip",
+  "version": "1.0.0",
+  "description": "Peyzaj ihaleleri takip uygulamasi - EKAP/ihale bildirimleri",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node checkTenders.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.14",
+    "pg": "^8.12.0",
+    "dotenv": "^16.4.5"
+  }
+}

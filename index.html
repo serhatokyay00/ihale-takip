@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>İhale Takip</title>
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#1a7a4c" />
+<link rel="icon" href="/icon-192.png" />
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, Roboto, Arial, sans-serif; margin: 0; background: #f4f6f5; color: #1c2b22; }
+  header { background: #1a7a4c; color: white; padding: 16px; text-align: center; }
+  main { max-width: 480px; margin: 0 auto; padding: 12px; }
+  .card { background: white; border-radius: 12px; padding: 14px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  h2 { font-size: 16px; margin: 0 0 10px; }
+  label { display: block; font-size: 14px; margin: 8px 0 4px; }
+  input[type=email] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; }
+  .chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { border: 1px solid #ccc; border-radius: 20px; padding: 7px 12px; font-size: 13px; cursor: pointer; background: white; user-select: none; }
+  .chip.active { background: #1a7a4c; color: white; border-color: #1a7a4c; }
+  button.save { width: 100%; padding: 12px; background: #1a7a4c; color: white; border: none; border-radius: 10px; font-size: 15px; margin-top: 12px; }
+  .tender { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .tender b { display: block; margin-bottom: 3px; }
+  .muted { color: #667; font-size: 12px; }
+  .status { font-size: 13px; text-align: center; margin-top: 6px; min-height: 16px; }
+  .tabs { display: flex; margin-bottom: 10px; }
+  .tab { flex: 1; text-align: center; padding: 10px; background: white; cursor: pointer; font-size: 14px; }
+  .tab.active { background: #1a7a4c; color: white; }
+  .tab:first-child { border-radius: 10px 0 0 10px; }
+  .tab:last-child { border-radius: 0 10px 10px 0; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<header><h1 style="font-size:18px;margin:0;">İhale Takip</h1></header>
+<main>
+  <div class="tabs">
+    <div class="tab active" data-tab="tenders">İhaleler</div>
+    <div class="tab" data-tab="settings">Ayarlar</div>
+  </div>
+
+  <section id="tenders-view">
+    <div class="card">
+      <h2>Takip edilen ihaleler</h2>
+      <div id="tender-list" class="muted">Yükleniyor...</div>
+    </div>
+  </section>
+
+  <section id="settings-view" class="hidden">
+    <div class="card">
+      <h2>Bildirim e-postası</h2>
+      <input type="email" id="email" placeholder="ornek@gmail.com" />
+    </div>
+
+    <div class="card">
+      <h2>İhale türleri (en fazla 5)</h2>
+      <div class="chip-group" id="type-chips"></div>
+    </div>
+
+    <div class="card">
+      <h2>Şehirler</h2>
+      <div class="chip-group" id="city-chips"></div>
+    </div>
+
+    <button class="save" id="save-btn">Kaydet</button>
+    <div class="status" id="status"></div>
+  </section>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

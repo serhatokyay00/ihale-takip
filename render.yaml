@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: ihale-takip-web
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+
+  - type: cron
+    name: ihale-takip-check
+    runtime: node
+    plan: free
+    schedule: "0 6,9,12,15,18 * * *"
+    buildCommand: npm install
+    startCommand: npm run check
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: GMAIL_USER
+        sync: false
+      - key: GMAIL_APP_PASSWORD
+        sync: false
